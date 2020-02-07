@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des recommandations{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1 class="col">Toutes les recommandations</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Recommandations de</th>
+                    <th>Pour</th>
+                    <th>Pour une prestation de</th>
+                    <th>Commentaire</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for recommendation in recommendations %}
+                <tr>
+                    <td>{{ recommendation.owner.name }}</td>
+                    <td>{{ recommendation.target.name }}</td>
+                    <td>{{ recommendation.comment }}</td>
+                    <td>
+                        <a href="{{ path('recommendation_show', {'id': recommendation.id}) }}">Voir</a>
+                        <a href="{{ path('recommendation_edit', {'id': recommendation.id}) }}">Édition</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucunes recommandations trouvées</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+{% endblock %}

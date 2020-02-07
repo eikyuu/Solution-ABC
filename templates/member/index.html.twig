@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des membres{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Index des membres</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom et prénom</th>
+                <th>Entreprise</th>
+                <th>Téléphone</th>
+                <th>Adresse de l'entreprise</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Image de profil</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.company }}</td>
+                <td>{{ member.phonenumber }}</td>
+                <td>{{ member.workingLocation }}</td>
+                <td>{{ member.postCode }}</td>
+                <td>{{ member.city }}</td>
+                <td><img class="image_profile" src="{{ member.profileImage }}" alt="photo de profil/entreprise"/></td>
+                <td>
+                    <a href="{{ path('member_show', {'id': member.id}) }}">Voir</a>
+                    <a href="{{ path('member_edit', {'id': member.id}) }}">Édition</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucuns membres trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a  href="{{ path('app_register') }}">Ajouter un nouveau membre</a>
+</div>    
+{% endblock %}
