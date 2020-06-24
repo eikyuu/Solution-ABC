@@ -1,3 +1,5 @@
+![ABC website](https://user-images.githubusercontent.com/49157786/85609439-5bb12480-b656-11ea-9cf1-b3764309a9a1.png)
+
 # «Solution ABC» for Strat&Growth
 
 It is a platform intended to promote the skills of professionals in the ABC network through a system for recommending services and skills of network members and managing events.
